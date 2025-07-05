@@ -1,0 +1,32 @@
+1. docker ps
+- displays all the current running containers and their respective images
+- CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+2. docker images
+- displays all the built images in docker-desktop VM handled by docker
+
+3. docker build -t <username>/<image_name>:<version> .
+- builds a docker image from the docker file
+- -t is a tag that gives the name for the image
+- . indicates the directory in which the dockerfile is and its . because you're running this command in the root directory where the dockerfile currently is
+
+4. docker run image
+- where this image = <username>/<image_name>:<version>
+- runs the image. running image == container
+
+5. docker run -p <localPort>:<containerListeningPort> image_name
+- ex: docker run -p 5000:8080 gunanka/learndocker:1.3
+- p flag is used for port forwarding
+- 8080 is the port the container is listening on and u cant access this using your browser
+- we need to map this 8080 (container port) to a port on our browser (5000)
+- now we can access the server in the container using http://localhost:5000 on our browser which links up 
+- with port 8080 on the container
+
+6. docker push <image_name>:<version>
+- ex: docker push gunanka/learndocker:1.3
+- now this is available in docker hub and can be pulled by anyone
+
+Other concepts
+7. docker compose -> to run multiple containers at once
+8. docker volumes 
+9. docker hub for pushing and pulling images
