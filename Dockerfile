@@ -1,6 +1,6 @@
 # imports base image
 # node has Node and npm installed
-# can do FROM scratch and install everything (Node, npm, Linux) from scratch but not followed
+# can do FROM scratch and install everything (Node, npm, Linux) but not followed
 FROM node:18
 
 # changes the workdir inside container only
@@ -14,7 +14,8 @@ COPY package*.json ./
 # Shell style to run
 # RUN command only runs during the docker image build
 # after copying the package files, we install all the dependencies
-RUN npm install
+# SHELL FORM
+RUN npm install 
 
 # after we have dependencies installed, we can copy all other files into our container
 # the reason we first copy only the package files, install dependencies and then the rest is
@@ -41,4 +42,5 @@ EXPOSE 8080
 # This runs at container runtime, not build time.
 # In Node apps, npm start looks for the start script in package.json
 # CMD = "What do I do when someone runs this container?"
+# EXEC FORM
 CMD [ "npm", "start" ]

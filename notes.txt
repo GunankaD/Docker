@@ -1,0 +1,23 @@
+1. dockerfile -> image -> containers
+- every docker project needs a 'Dockerfile' which holds the instructions to create the image
+- in the dockerfile we follow 7 steps
+    - import base image using 'FROM' cmd 
+    - change directory using 'WORKDIR'
+    - copy package files using 'COPY'
+    - install all dependencies using 'RUN'
+    - copy rest of the files using 'COPY'
+    - expose or write ports using 'ENV'
+    - write the command to be run when the docker is ran using 'CMD'
+
+2. to create an image from above Dockerfile we use, 'docker build -t username/imagename:version.0 .' command
+example:
+- docker build -t gunanka/learndocker:1.0
+- username/ is only required if we plan to push to dockerhub. for local use only just imagename:version.0 is enough
+
+3. upload image to dockerhub
+
+4. run the image to make it a container using
+    - docker run -p 5000:8080 ec27681c6682
+    - where -p is port forwarding, left is the one we can access from our local host or laptop
+    - right port is the one that container is exposing
+    - random id is the image id that docker auto gives

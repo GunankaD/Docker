@@ -1,3 +1,5 @@
+First make sure docker engine is running, open your docker desktop first
+
 1. docker ps
 - displays all the current running containers and their respective images
 ex:
